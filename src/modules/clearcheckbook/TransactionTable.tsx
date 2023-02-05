@@ -1,3 +1,4 @@
+import { Guid } from "guid-typescript";
 import { ITransaction } from "./types";
 
 interface TransactionTableProps {
@@ -28,7 +29,7 @@ export const TransactionTable: React.FC<TransactionTableProps> = ({
       </thead>
       <tbody>
         {transactions.slice(0, rowCount).map((transaction) => (
-          <tr key={transaction.Date + transaction.Amount}>
+          <tr key={Guid.create().toString()}>
             <td>{transaction.Date}</td>
             <td>{transaction.Amount}</td>
             <td>{transaction.Description}</td>

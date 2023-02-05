@@ -12,8 +12,11 @@
     "deploy": "gh-pages -d dist"
   },
   "dependencies": {
+    "chart.js": "^4.2.0",
+    "guid-typescript": "^1.0.9",
     "papaparse": "^5.3.2",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-drag-drop-files": "^2.3.8",
     "react-papaparse": "^4.1.0"
