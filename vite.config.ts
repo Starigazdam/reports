@@ -4,6 +4,7 @@ import react from "@vitejs/plugin-react";
 import { NodeGlobalsPolyfillPlugin } from "@esbuild-plugins/node-globals-polyfill";
 import { NodeModulesPolyfillPlugin } from "@esbuild-plugins/node-modules-polyfill";
 import rollupNodePolyFill from "rollup-plugin-polyfill-node";
+import inject from "@rollup/plugin-inject";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -17,16 +18,17 @@ export default defineConfig({
       },
       // Enable esbuild polyfill plugins
       plugins: [
-        NodeGlobalsPolyfillPlugin({
-          buffer: true,
-        }),
+        NodeGlobalsPolyfillPlugin({ buffer: true }),
         NodeModulesPolyfillPlugin(),
       ],
     },
   },
   build: {
     rollupOptions: {
-      plugins: [rollupNodePolyFill()],
+      plugins: [
+        rollupNodePolyFill(),
+        inject({ Transform: ["Transform", "Transform"] }),
+      ],
     },
   },
 });
